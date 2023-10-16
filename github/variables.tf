@@ -59,7 +59,7 @@ variable "repos" {
     ## Branches Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#branches-configuration
     branches = optional(list(object({
-      name          = optional(string)
+      name          = string
       source_branch = optional(string, null)
       source_sha    = optional(bool, null)
     })), [])
@@ -68,13 +68,13 @@ variable "repos" {
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#deploy-keys-configuration
     deploy_keys = optional(list(object({
       id        = optional(string, "md5(key)")
-      key       = optional(string)
+      key       = string
       read_only = optional(bool, true)
       title     = optional(string, null)
     })), [])
     deploy_keys_computed = optional(list(object({
       id        = optional(string, "md5(key)")
-      key       = optional(string)
+      key       = string
       read_only = optional(bool, true)
       title     = optional(string, null)
     })), [])
@@ -82,7 +82,7 @@ variable "repos" {
     ## Branch Protections v3 Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#branch-protections-v3-configuration
     branch_protections_v3 = optional(list(object({
-      branch                          = optional(string)
+      branch                          = string
       enforce_admins                  = optional(bool, false)
       require_conversation_resolution = optional(bool, false)
       require_signed_commits          = optional(bool, false)
@@ -107,7 +107,7 @@ variable "repos" {
     ## Branch Protections v4 Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#branch-protections-v4-configuration
     branch_protections_v4 = optional(list(object({
-      pattern                         = optional(string)
+      pattern                         = string
       _key                            = optional(string)
       allows_deletions                = optional(bool, false)
       allows_force_pushes             = optional(bool, false)
@@ -134,10 +134,10 @@ variable "repos" {
     ## Issue Labels Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#issue-labels-configuration
     issue_labels = optional(list(object({
-      color       = optional(string)
+      color       = string
       description = optional(string, null)
       id          = optional(string, "name")
-      name        = optional(string)
+      name        = string
     })), [])
 
     issue_labels_merge_with_github_labels = optional(bool)
@@ -148,7 +148,7 @@ variable "repos" {
     projects = optional(list(object({
       body = optional(string, "")
       id   = optional(string, "name")
-      name = optional(string, null)
+      name = string
     })), [])
 
     ## Webhooks Configuration
@@ -157,10 +157,10 @@ variable "repos" {
       active       = optional(bool, true)
       content_type = optional(string, "form")
       insecure_ssl = optional(bool, false)
-      events       = optional(list(string))
+      events       = list(string)
       name         = optional(string)
       secret       = optional(string)
-      url          = optional(string)
+      url          = string
     })), [])
 
     ## Secrets Configuration
@@ -171,8 +171,8 @@ variable "repos" {
     ## Autolink References Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#autolink-references-configuration
     autolink_references = optional(list(object({
-      key_prefix          = optional(string)
-      target_url_template = optional(string)
+      key_prefix          = string
+      target_url_template = string
     })), [])
 
     ## App Installations
