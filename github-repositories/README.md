@@ -1,6 +1,6 @@
-# GitHub Component
+# GitHub Repositories Component
 
-This repository contains a collection of Terraform configurations tailored for managing GitHub resources, including repositories, teams (TBD), permissions, and more.
+This repository contains a collection of Terraform configurations tailored for managing GitHub repositories, including permissions, webhooks, pages, and more.
 
 ## Usage
 
@@ -26,8 +26,8 @@ You can start with the configuration below to use the GitHub component module.
 :warning: the key of each item in the `repos` map matches the repository's name. This is to ensure consistent naming and referencing throughout your Terraform configuration.
 
 ```hcl
-module "github" {
-  source = "git::https://github.com/masterpointio/terraform-components.git//github?ref=<TAG_OR_COMMIT_SHA>"
+module "gh_repos" {
+  source = "git::https://github.com/masterpointio/terraform-components.git//github-repositories?ref=<TAG_OR_COMMIT_SHA>"
 
   # GitHub provider
   gh_owner             = "myorg"
