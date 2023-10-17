@@ -177,8 +177,8 @@ variable "gh_app_auth_installation_id" {
 variable "gh_app_auth_pem_file_secret_name" {
   type        = string
   description = <<-EOF
-    The name of the secret retrieved by secrets mixin that contains
-    the contents of the GitHub App private key PEM file.
+  The name of the secret retrieved by secrets mixin that contains
+  the contents of the GitHub App private key PEM file.
   EOF
   default     = null
 }
@@ -186,10 +186,10 @@ variable "gh_app_auth_pem_file_secret_name" {
 variable "gh_base_url" {
   type        = string
   description = <<-EOF
-    (Optional) This is the target GitHub base API endpoint.
-    Providing a value is a requirement when working with GitHub Enterprise.
-    It is optional to provide this value and it can also be sourced from the GITHUB_BASE_URL environment variable.
-    The value must end with a slash.
+  (Optional) This is the target GitHub base API endpoint.
+  Providing a value is a requirement when working with GitHub Enterprise.
+  It is optional to provide this value and it can also be sourced from the GITHUB_BASE_URL environment variable.
+  The value must end with a slash.
   EOF
   default     = null
 }
@@ -197,19 +197,17 @@ variable "gh_base_url" {
 variable "gh_owner" {
   type        = string
   description = <<-EOF
-    (Optional) This is the target GitHub organization or individual user account to manage.
-    For example, `torvalds` and `github` are valid owners. It is optional to provide this value
-    and it can also be sourced from the GITHUB_OWNER environment variable.
-    When not provided and a token is available, the individual user account owning the token will be used.
-    When not provided and no token is available, the provider may not function correctly.
+  (Optional) This is the target GitHub organization or individual user account to manage.
+  For example, `torvalds` and `github` are valid owners. It is optional to provide this value
+  and it can also be sourced from the GITHUB_OWNER environment variable.
+  When not provided and a token is available, the individual user account owning the token will be used.
+  When not provided and no token is available, the provider may not function correctly.
   EOF
   default     = null
 }
 
 variable "gh_token_secret_name" {
   type        = string
-  description = <<-EOF
-    The name of the secret retrieved by secrets mixin that contains the GitHub personal access token.
-  EOF
+  description = "The name of the secret retrieved by secrets mixin that contains the GitHub personal access token."
   default     = null
 }
