@@ -8,4 +8,22 @@ It's Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Components
 
-* [GitHub](./github/README.md): responsible for managing GitHub resources, including repositories, teams, permissions, pages, etc.
+- [GitHub](./github/README.md): responsible for managing GitHub resources, including repositories, teams, permissions, pages, etc.
+
+## Trunk Linter
+
+To maintain code quality we use a collection of linters, all managed by [Trunk](https://trunk.io).
+
+To install trunk on your machine you can use brew: `brew install trunk-io`. You can also install trunk via the [official instructions](https://docs.trunk.io/docs/install).
+
+### Usage
+
+To run the linters, simply run `trunk check` from the root of the project. This will check any files that you have changed in your current branch.
+
+To automatically apply formatting changes, run `trunk fmt`.
+
+## Automating Trunk
+
+Trunk can manage git hooks, and is configured to run `fmt` on pre-commit and `check` on pre-push. This should help to prevent code being kicked-back by CI.
+
+Trunk is automated in CI using GitHub Actions, and PRs will be blocked if the linters fail.
