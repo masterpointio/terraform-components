@@ -4,7 +4,7 @@ locals {
 
   gh_app_auth_id_enabled              = length(var.gh_app_auth_id) > 0 ? true : false
   gh_app_auth_installation_id_enabled = length(var.gh_app_auth_installation_id) > 0 ? true : false
-  gh_app_auth_pem_file                = try(local.secrets["${var.gh_app_auth_pem_file_secret_name}"], "")
+  gh_app_auth_pem_file                = try(local.secrets[var.gh_app_auth_pem_file_secret_name], "")
   gh_app_auth_pem_file_enabled        = length(local.gh_app_auth_pem_file) > 0 ? true : false
   gh_app_auth_enabled                 = alltrue([local.gh_app_auth_id_enabled, local.gh_app_auth_installation_id_enabled, local.gh_app_auth_pem_file_enabled])
 }

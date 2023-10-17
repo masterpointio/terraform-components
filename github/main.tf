@@ -1,4 +1,5 @@
 module "repos" {
+  # checkov:skip=CKV_TF_1: For now we use Terraform registry source, not git. If switching to git, we should use a commit hash.
   source  = "mineiros-io/repository/github"
   version = "0.18.0"
 
@@ -55,9 +56,6 @@ module "repos" {
   # Deploy Keys Configuration
   deploy_keys          = each.value.deploy_keys
   deploy_keys_computed = each.value.deploy_keys_computed
-
-  # Branch Protections v3 Configuration
-  branch_protections_v3 = each.value.branch_protections_v3
 
   # Branch Protections v4 Configuration
   branch_protections_v4 = each.value.branch_protections_v4

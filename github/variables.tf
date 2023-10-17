@@ -82,31 +82,6 @@ variable "repos" {
       title     = optional(string, null)
     })), [])
 
-    ## Branch Protections v3 Configuration
-    # https://github.com/mineiros-io/terraform-github-repository/tree/main#branch-protections-v3-configuration
-    branch_protections_v3 = optional(list(object({
-      branch                          = string
-      enforce_admins                  = optional(bool, false)
-      require_conversation_resolution = optional(bool, false)
-      require_signed_commits          = optional(bool, false)
-      required_pull_request_reviews = optional(object({
-        dismiss_stale_reviews           = optional(bool, true)
-        dismissal_users                 = optional(list(string), []),
-        dismissal_teams                 = optional(list(string), []),
-        require_code_owner_reviews      = optional(bool, true)
-        required_approving_review_count = optional(number, 1)
-      }), {})
-      required_status_checks = optional(object({
-        strict   = optional(bool, false)
-        contexts = optional(list(string), [])
-      }), {})
-      restrictions = optional(object({
-        users = optional(list(string), [])
-        teams = optional(list(string), [])
-        apps  = optional(list(string), [])
-      }), {})
-    })), [])
-
     ## Branch Protections v4 Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#branch-protections-v4-configuration
     branch_protections_v4 = optional(list(object({
@@ -214,7 +189,7 @@ variable "gh_base_url" {
     (Optional) This is the target GitHub base API endpoint.
     Providing a value is a requirement when working with GitHub Enterprise.
     It is optional to provide this value and it can also be sourced from the GITHUB_BASE_URL environment variable.
-    The value must end with a slash, for example: https://terraformtesting-ghe.westus.cloudapp.azure.com/
+    The value must end with a slash.
   EOF
   default     = null
 }

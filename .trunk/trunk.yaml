@@ -18,7 +18,6 @@ lint:
     - git-diff-check
     - markdownlint@0.37.0
     - prettier@3.0.3
-    - terrascan@1.18.3
     - tflint@0.48.0
     - trivy@0.46.0
     - trufflehog@3.60.0
