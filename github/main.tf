@@ -82,5 +82,3 @@ module "repos" {
   # App Installations
   app_installations = each.value.app_installations
 }
-
-
