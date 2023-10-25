@@ -7,21 +7,22 @@ variable "repos" {
   type = map(object({
     # Main Resource Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#main-resource-configuration
-    allow_auto_merge   = optional(bool, false)
-    allow_merge_commit = optional(bool, true)
-    allow_rebase_merge = optional(bool, false)
-    allow_squash_merge = optional(bool, false)
-    archive_on_destroy = optional(bool, true)
-    archived           = optional(bool, false)
-    default_branch     = optional(string, null)
-    description        = optional(string, "")
-    extra_topics       = optional(list(string), [])
-    has_downloads      = optional(bool, false)
-    has_issues         = optional(bool, false)
-    has_projects       = optional(bool, false)
-    has_wiki           = optional(bool, false)
-    homepage_url       = optional(string, "")
-    is_template        = optional(bool, false)
+    allow_auto_merge       = optional(bool, false)
+    allow_merge_commit     = optional(bool, false)
+    allow_rebase_merge     = optional(bool, false)
+    allow_squash_merge     = optional(bool, false)
+    archive_on_destroy     = optional(bool, true)
+    archived               = optional(bool, false)
+    default_branch         = optional(string, "main")
+    delete_branch_on_merge = optional(bool, true)
+    description            = optional(string, "")
+    extra_topics           = optional(list(string), [])
+    has_downloads          = optional(bool, true)
+    has_issues             = optional(bool, true)
+    has_projects           = optional(bool, true)
+    has_wiki               = optional(bool, false)
+    homepage_url           = optional(string, "")
+    is_template            = optional(bool, false)
     pages = optional(object({
       branch = string
       cname  = optional(string, null)
@@ -29,7 +30,7 @@ variable "repos" {
     }))
     topics               = optional(list(string), [])
     visibility           = optional(string, "private")
-    vulnerability_alerts = optional(bool, false)
+    vulnerability_alerts = optional(bool, true)
 
     # Extended Resource Configuration
 

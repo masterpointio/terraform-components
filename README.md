@@ -8,7 +8,7 @@ It's Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Components
 
-- [GitHub Repositories](./github-repositories/README.md): responsible for managing GitHub repositories, including permissions, webhooks, pages, etc.
+- [GitHub Repositories](./components/github-repositories/README.md): responsible for managing GitHub repositories, including permissions, webhooks, pages, etc.
 
 ## Trunk Linter
 
