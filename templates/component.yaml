@@ -1,0 +1,5 @@
+component:
+  name: COMPONENT_NAME
+  source:
+    uri: https://api.github.com/repos/masterpointio/terraform-components/tarball/
+    version: COMPONENT_VERSION

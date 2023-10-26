@@ -1,4 +1,0 @@
-component:
-  git_source: https://api.github.com/repos/masterpointio/terraform-components/tarball/
-  version: main
-  path: "{{PATH_IN_GIT}}"
