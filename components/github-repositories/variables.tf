@@ -7,21 +7,22 @@ variable "repos" {
   type = map(object({
     # Main Resource Configuration
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#main-resource-configuration
-    allow_auto_merge   = optional(bool, false)
-    allow_merge_commit = optional(bool, true)
-    allow_rebase_merge = optional(bool, false)
-    allow_squash_merge = optional(bool, false)
-    archive_on_destroy = optional(bool, true)
-    archived           = optional(bool, false)
-    default_branch     = optional(string, null)
-    description        = optional(string, "")
-    extra_topics       = optional(list(string), [])
-    has_downloads      = optional(bool, false)
-    has_issues         = optional(bool, false)
-    has_projects       = optional(bool, false)
-    has_wiki           = optional(bool, false)
-    homepage_url       = optional(string, "")
-    is_template        = optional(bool, false)
+    allow_auto_merge       = optional(bool, false)
+    allow_merge_commit     = optional(bool, false)
+    allow_rebase_merge     = optional(bool, false)
+    allow_squash_merge     = optional(bool, false)
+    archive_on_destroy     = optional(bool, true)
+    archived               = optional(bool, false)
+    default_branch         = optional(string, "main")
+    delete_branch_on_merge = optional(bool, true)
+    description            = optional(string, "")
+    extra_topics           = optional(list(string), [])
+    has_downloads          = optional(bool, true)
+    has_issues             = optional(bool, true)
+    has_projects           = optional(bool, true)
+    has_wiki               = optional(bool, false)
+    homepage_url           = optional(string, "")
+    is_template            = optional(bool, false)
     pages = optional(object({
       branch = string
       cname  = optional(string, null)
@@ -29,7 +30,7 @@ variable "repos" {
     }))
     topics               = optional(list(string), [])
     visibility           = optional(string, "private")
-    vulnerability_alerts = optional(bool, false)
+    vulnerability_alerts = optional(bool, true)
 
     # Extended Resource Configuration
 
@@ -86,7 +87,6 @@ variable "repos" {
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#branch-protections-v4-configuration
     branch_protections_v4 = optional(list(object({
       pattern                         = string
-      _key                            = optional(string)
       allows_deletions                = optional(bool, false)
       allows_force_pushes             = optional(bool, false)
       blocks_creations                = optional(bool, false)
@@ -95,18 +95,18 @@ variable "repos" {
       require_conversation_resolution = optional(bool, false)
       require_signed_commits          = optional(bool, false)
       required_linear_history         = optional(bool, false)
-      required_pull_request_reviews = optional(list(object({
+      required_pull_request_reviews = optional(object({
         dismiss_stale_reviews           = optional(bool, true)
         restrict_dismissals             = optional(bool, false)
         dismissal_restrictions          = optional(list(string), [])
         pull_request_bypassers          = optional(list(string), [])
         require_code_owner_reviews      = optional(bool, true)
         required_approving_review_count = optional(number, 1)
-      })), [])
-      required_status_checks = optional(list(object({
+      }), {})
+      required_status_checks = optional(object({
         strict   = optional(bool, false)
         contexts = optional(list(string), [])
-      })), [])
+      }), {})
     })), [])
 
     ## Issue Labels Configuration
