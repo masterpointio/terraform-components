@@ -10,7 +10,7 @@ variable "repos" {
     allow_auto_merge       = optional(bool, false)
     allow_merge_commit     = optional(bool, false)
     allow_rebase_merge     = optional(bool, false)
-    allow_squash_merge     = optional(bool, false)
+    allow_squash_merge     = optional(bool, true)
     archive_on_destroy     = optional(bool, true)
     archived               = optional(bool, false)
     default_branch         = optional(string, "main")
