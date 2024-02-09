@@ -156,6 +156,10 @@ variable "repos" {
     ## App Installations
     # https://github.com/mineiros-io/terraform-github-repository/tree/main#app-installations
     app_installations = optional(set(string), [])
+
+    ## Managing Access
+    # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-access-for-a-private-repository-in-an-organization
+    access_level = optional(string, "")
   }))
 }
 

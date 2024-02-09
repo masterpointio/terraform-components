@@ -82,3 +82,12 @@ module "repos" {
   # App Installations
   app_installations = each.value.app_installations
 }
+
+resource "github_actions_repository_access_level" "this" {
+  for_each = {
+    for key, repo in var.repos : key => repo
+    if length(repo.access_level) > 0
+  }
+  repository   = each.key
+  access_level = each.value.access_level
+}
